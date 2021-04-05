@@ -10,4 +10,11 @@
     width: 150px;
     height: 150px;
     background-color:#44425e;
+    cursor: pointer;
+    font-size: 100px;
+    user-select: none;
+    /* margin-bottom: 10px; */
+}
+.space {
+    margin-bottom: 10px;
 }

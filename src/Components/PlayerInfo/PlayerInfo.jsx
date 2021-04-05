@@ -3,9 +3,9 @@ import style from './PlayerInfo.module.css';
 
 
 export const PlayerInfo = () => {
-    const [state, setState] = React.useState({
-        value: 15
-    });
+    // const [state, setState] = React.useState({
+    //     value: 15
+    // });
     
     
     
