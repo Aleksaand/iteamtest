@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.buttton {
+  height: 60px;
+  width: 140px;
+  color:red;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+}

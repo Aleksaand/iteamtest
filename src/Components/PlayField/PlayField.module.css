@@ -1,0 +1,13 @@
+.grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: #a855c1;
+    /* #c4c4c4 */
+}
+.fieldBox{
+    width: 150px;
+    height: 150px;
+    background-color:#44425e;
+}
