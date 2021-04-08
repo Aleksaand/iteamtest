@@ -35,7 +35,10 @@ export const Main = () => {
                 handlerInputFirst={handlerInputFirst}
                 handlerInputSecond={handlerInputSecond} 
             />
-            <PlayField>PlayField</PlayField>
+            <PlayField 
+                playerFirst={state.playerFirst}
+                playerSecond={state.playerSecond}
+            />
         </main>
     );
 }; 

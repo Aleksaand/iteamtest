@@ -1,14 +1,7 @@
 import './modal.css';
 
 export const Modal = ({active, setActive, state, handlerInputFirst, handlerInputSecond}) => {
-    
-    
-    console.log(state);
-    
-    
-    
-    
-    
+
     
     return (
         <div 
