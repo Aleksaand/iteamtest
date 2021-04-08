@@ -20,7 +20,8 @@
 .buttton {
   height: 60px;
   width: 140px;
-  color:red;
+  font-size: 16px;
+  color:#555c6c;
   border-radius: 15px;
   cursor: pointer;
   outline: none;

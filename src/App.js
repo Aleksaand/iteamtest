@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Main } from './Components/Main/Main';
-// import { Modal } from './Components/Modal/Modal';
 
 function App() {
   const [state, setState] = React.useState({

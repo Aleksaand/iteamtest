@@ -8,7 +8,6 @@ export const Statistic = (props) => {
                  <span>Statistic</span>
                  <div>win {props.namePlayer1}: {props.countPlayer1}</div>
                  <div>win {props.namePlayer2}: {props.countPlayer2}</div>
-                 <div>draw: {props.draw}</div>
              </div>
         </div>
     );

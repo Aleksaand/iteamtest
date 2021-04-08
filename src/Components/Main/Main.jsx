@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './Main.module.css';
 import { PlayField } from '../PlayField/PlayField';
-// import { PlayerInfo } from '../PlayerInfo/PlayerInfo';
 import { Modal } from '../Modal/Modal';
 
 export const Main = () => {

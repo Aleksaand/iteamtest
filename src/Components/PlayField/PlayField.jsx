@@ -17,51 +17,23 @@ export const PlayField = (props) => {
     const player2 = props.playerSecond ? props.playerSecond : 'PLAYER2';
 
     
-    React.useEffect(
-        () => {
-            if (winner) {
-                switch (winner) {
-                    case 'X':
-                        setcount({
-                          ...count,
-                          player1: count.player1 + 1
-                        })
-                        break;
-                    case '0':
-                        setcount({
-                            ...count,
-                            player2: count.player2 + 1
-                        })
-                        break;
-                    default:
-                        break;
-                }
+    React.useEffect( () => {
+        if (winner) {
+            switch (winner) {
+                case 'X':
+                    setcount({...count, player1: count.player1 + 1})
+                    break;
+                case '0':
+                    setcount({...count, player2: count.player2 + 1})
+                    break;
+                default:
+                    break;
             }
-        },
-        [winner]
-      );
+        }
+    }, [winner] );
     
     const handleClick = (index) => {
         const boardCopy = [...board];
-        // if (winner) {
-        //     switch (winner) {
-        //         case 'X':
-        //             setcount({
-        //               ...count,
-        //               player1: count.player1 + 1
-        //             })
-        //             break;
-        //         case '0':
-        //             setcount({
-        //                 ...count,
-        //                 player2: count.player2 + 1
-        //             })
-        //             break;
-            
-        //         default:
-        //             break;
-        //     }
-        // }
         if (winner || boardCopy[index]) {
             return null;
         }
