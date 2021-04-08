@@ -1,81 +1,248 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './PlayField.module.css';
 import { calculateWinner } from './calculateWinner';
+import { Board } from '../Board/Board';
+import { Statistic } from '../Statistic/Statistic';
 
 
 export const PlayField = (props) => {
-    const [state, setState] = React.useState({
-        squares: Array(9).fill(null),
-        count: 0,
+    const [count, setcount] = useState({
+        player1: 0,
+        player2: 0,
     });
-    const [xIsNext, setXIsNext] = React.useState(true);
-    const winner = calculateWinner(state.squares);
+    const [board, setBoard] = useState(Array(9).fill(null));
+    const [xIsNext, setXIsNext] = useState(true);
+    const winner = calculateWinner(board);
     const player1 = props.playerFirst ? props.playerFirst : 'PLAYER1';
     const player2 = props.playerSecond ? props.playerSecond : 'PLAYER2';
-    console.log(winner);
 
     
-    // const [count, setCount] = React.useState(0);
-    // let gridElement = Array(9).fill(null);
-    // gridElement[8] = null;
-    // gridElement.fill(null);
+    React.useEffect(
+        () => {
+            if (winner) {
+                switch (winner) {
+                    case 'X':
+                        setcount({
+                          ...count,
+                          player1: count.player1 + 1
+                        })
+                        break;
+                    case '0':
+                        setcount({
+                            ...count,
+                            player2: count.player2 + 1
+                        })
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
+        [winner]
+      );
     
-    
-
-
-
-    const handlerClick = (event) => {
-        let data = event.target.getAttribute('data');
-        let currentPlayField = state.squares;
-        if (currentPlayField[data] === null) {
-            currentPlayField[data] = (state.count % 2 === 0) 
-            ?  'X'
-            :  '0';
+    const handleClick = (index) => {
+        const boardCopy = [...board];
+        // if (winner) {
+        //     switch (winner) {
+        //         case 'X':
+        //             setcount({
+        //               ...count,
+        //               player1: count.player1 + 1
+        //             })
+        //             break;
+        //         case '0':
+        //             setcount({
+        //                 ...count,
+        //                 player2: count.player2 + 1
+        //             })
+        //             break;
             
-            setState({
-                ...state,
-                squares: currentPlayField,
-                count: state.count + 1
-            });
-        } else {
-
-        };
-        console.log(state.squares);
-        // calculateWinner(state.squares);
+        //         default:
+        //             break;
+        //     }
+        // }
+        if (winner || boardCopy[index]) {
+            return null;
+        }
+        boardCopy[index] = xIsNext ?  'X' :  '0';
+        setBoard(boardCopy);
+        setXIsNext(!xIsNext);
     };
-    
-    
-    return (
-        <div className={style.big}>
-            <div className={style.space}></div>
-            <div className={style.fieldstatistic}>
-            <div 
-                className={style.grid}
+    const startNewGame = () => {
+        return (
+            <button
+                className={style.buttonNewGame}
+                onClick={() => setBoard(Array(9).fill(null))}
             >
-                {state.squares.map((element, index) => (
-                    <div 
-                        key={index}
-                        className={style.fieldBox}
-                        onClick={handlerClick}
-                        data={index}
-                        id={index}
-                    >
-                    {state.squares[index]}
-                    </div>))}
+                startNewGame
+            </button>
+        );
+    };
+
+
+    return (
+        <div>
+            <div className={style.span}>
+                <span>{ winner ? 'Win' + winner : `Next move` + (xIsNext ? 'X' : '0')}</span>
             </div>
-            <div className={style.statistic}>
-                <span>Statistic</span>
-                <div>move {}: </div>
-                <div>win {player1}: </div>
-                <div>win {player2}: </div>
-                <div>draw: </div>
+            <div className={style.flex}>
+                
+                <div className={style.fieldstatistic}>
+                    
+                    <Board squares={board} click={handleClick}/>
+                </div>
+                <div>
+                    <Statistic 
+                        namePlayer1={player1}
+                        namePlayer2={player2}
+                        countPlayer1={count.player1}
+                        countPlayer2={count.player2}
+                    />
+                    { startNewGame() }
+                </div>
             </div>
-            </div>
-            <div className={style.space}></div>
-            
         </div>
-        
     );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // const [state, setState] = React.useState({
+    //     squares: Array(9).fill(null),
+    //     count: 0,
+    // });
+    // const [xIsNext, setXIsNext] = React.useState(true);
+    // const winner = calculateWinner(state.squares);
+    // const player1 = props.playerFirst ? props.playerFirst : 'PLAYER1';
+    // const player2 = props.playerSecond ? props.playerSecond : 'PLAYER2';
+
+
+    
+    // const handClick = (event) => {
+    //     const winner = calculateWinner(state.squares);
+    //     console.log(winner);
+    //     let data = event.target.getAttribute('data');
+    //     const boardCopy = [...state.squares];
+    //     if (winner || boardCopy[data]) {
+    //         return null;
+    //     }
+    //     boardCopy[data] = xIsNext ?  'X' :  '0';
+    //     setState(boardCopy);
+    //     setXIsNext(!xIsNext);
+    // };
+
+    // // const [count, setCount] = React.useState(0);
+    // // let gridElement = Array(9).fill(null);
+    // // gridElement[8] = null;
+    // // gridElement.fill(null);
+    
+    
+
+
+
+    // const handlerClick = (event) => {
+    //     let data = event.target.getAttribute('data');
+    //     // const winner = calculateWinner(state.squares);
+    //     let currentPlayField = state.squares;
+    //     if (winner || currentPlayField[data] === null) {
+    //         currentPlayField[data] = (state.count % 2 === 0) 
+    //         ?  'X'
+    //         :  '0';
+            
+    //         setState({
+    //             ...state,
+    //             squares: currentPlayField,
+    //             count: state.count + 1
+    //         });
+    //     } else {
+
+    //     };
+    //     console.log(state.squares);
+    //     console.log(winner);
+    // };
+    
+    
+    // return (
+    //     <div className={style.big}>
+    //         <div className={style.space}></div>
+    //         <div className={style.fieldstatistic}>
+    //         <div className={style.grid}>
+    //             {state.squares.map((element, index) => (
+    //                 <div 
+    //                     key={index}
+    //                     className={style.fieldBox}
+    //                     onClick={handlerClick}
+    //                     // onClick={handClick}
+    //                     data={index}
+    //                     id={index}
+    //                 >
+    //                 {state.squares[index]}
+    //                 </div>))}
+    //         </div>
+    //         <div className={style.statistic}>
+    //             <span>Statistic</span>
+    //             <div>move {}: </div>
+    //             <div>win {player1}: </div>
+    //             <div>win {player2}: </div>
+    //             <div>draw: </div>
+    //         </div>
+    //         </div>
+    //         <div className={style.space}></div>
+            
+    //     </div>
+        
+    // );
 }
 
 

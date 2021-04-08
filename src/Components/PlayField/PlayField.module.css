@@ -2,9 +2,14 @@
     border: 1px solid white;
 }
 .fieldstatistic {
+    margin-top: 15px;
     display: flex;
     /* flex-direction: column; */
 
+}
+.flex{
+    display: flex;
+    flex-direction: row;
 }
 .grid {
     display: grid;
@@ -32,6 +37,21 @@
     margin-bottom: 25px;
     /* border: 1px solid white; */
 }
-.statistic {
-    margin-left: 20px;
+.buttonNewGame{
+    width: 140px;
+    height: 50px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 20px;
+    margin-top: 15px;
+    background-color:#e8e7fffa;
+}
+
+.buttonNewGame:hover{
+    background-color:#44425e;
+    transition: 0.3s all ease;
+}
+.span{
+    color: wheat;
+    font-size: 28px;
 }

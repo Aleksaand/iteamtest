@@ -1,0 +1,9 @@
+.grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: #a855c1;
+    margin-bottom: 30px;
+    /* #c4c4c4 */
+}
