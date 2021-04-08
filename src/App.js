@@ -1,19 +1,35 @@
 import React from 'react';
 import './App.css';
 import { Main } from './Components/Main/Main';
+// import { Modal } from './Components/Modal/Modal';
 
 function App() {
   const [state, setState] = React.useState({
     showField: false,
+    titleMessage: 'Начать игру',
   });
+
+  const handlerToggle = () => {
+    setState({
+      ...state,
+      showField: !state.showField,
+      titleMessage: (!state.showField) ?  'Закончить игру' : 'Начать игру',
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h3>Привет это </h3>
         <div className="symbol"> &#10006; &#9412; </div>
-        <h3> нажми &#9759; &#9759; &#9759; меня </h3>
-        <button className="buttton">Начать игру</button>
-        <Main></Main>
+        {<h3>{state.titleMessage}  &#9759; &#9759; &#9759; нажми меня </h3>}
+        <button 
+          className="buttton"
+          onClick={handlerToggle}
+        >
+          {state.titleMessage}
+        </button>
+        {state.showField && <Main />}
       </header>
     </div>
   );
