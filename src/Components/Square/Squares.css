@@ -1,4 +1,4 @@
-.button{
+.button__field{
     width: 150px;
     height: 150px;
     background-color:#44425e;
@@ -8,7 +8,10 @@
     color: #c4c4c4;
     /* margin-bottom: 10px; */
 }
-.button:hover{
+.button__field:hover{
     background-color:#44425ea8;
     transition: 0.3s all ease;
+}
+.winner{
+    background-color:#15fe00dd;
 }

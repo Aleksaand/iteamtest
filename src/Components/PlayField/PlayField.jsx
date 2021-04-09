@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from './PlayField.module.css';
-import { calculateWinner } from './calculateWinner';
+import { calculateWinner, getSquaresWin, getWinLine } from './helperFunctions';
 import { Board } from '../Board/Board';
 import { Statistic } from '../Statistic/Statistic';
 
@@ -13,6 +13,8 @@ export const PlayField = (props) => {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
     const winner = calculateWinner(board);
+    const winnerBoard = getSquaresWin(board);
+    const WinLine = getWinLine(winnerBoard);
     const player1 = props.playerFirst ? props.playerFirst : 'PLAYER1';
     const player2 = props.playerSecond ? props.playerSecond : 'PLAYER2';
 
@@ -62,7 +64,12 @@ export const PlayField = (props) => {
                 
                 <div className={style.fieldstatistic}>
                     
-                    <Board squares={board} click={handleClick}/>
+                    <Board 
+                        squares={board} 
+                        click={handleClick} 
+                        winnerBoard={winnerBoard}
+                        WinLine={WinLine}
+                    />
                 </div>
                 <div>
                     <Statistic 

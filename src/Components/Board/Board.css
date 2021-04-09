@@ -1,0 +1,92 @@
+.grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: #a855c1;
+    margin-bottom: 30px;
+    /* #c4c4c4 */
+}
+.row1::after {
+        content: '';
+        display: block;
+        height: 3px;
+        background: red;
+        position: absolute;
+        width: 500px;
+        bottom: 360px;
+        left: 100px;
+}
+.row2::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: red;
+    position: absolute;
+    width: 500px;
+    bottom: 200px;
+    left: 100px;
+}
+.row3::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: red;
+    position: absolute;
+    width: 500px;
+    bottom: 40px;
+    left: 100px;
+}
+.column1::after {
+    content: '';
+    display: block;
+    height: 500px;
+    background: red;
+    position: absolute;
+    width: 3px;
+    bottom: -45px;
+    left: 195px;
+}
+.column2::after {
+    content: '';
+    display: block;
+    height: 500px;
+    background: red;
+    position: absolute;
+    width: 3px;
+    bottom: -45px;
+    left: 350px;
+}
+.column3::after {
+    content: '';
+    display: block;
+    height: 500px;
+    background: red;
+    position: absolute;
+    width: 3px;
+    bottom: -45px;
+    left: 505px;
+}
+.diagonal09::before {
+    transform: rotate(135deg);
+    content: '';
+    display: block;
+    height: 700px;
+    background: red;
+    position: absolute;
+    width: 3px;
+    bottom: -140px;
+    left: 350px;
+    
+} 
+.diagonal37::before {
+    transform: rotate(45deg);
+    content: '';
+    display: block;
+    height: 700px;
+    background: red;
+    position: absolute;
+    width: 3px;
+    bottom: -140px;
+    left: 350px;
+}

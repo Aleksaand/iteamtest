@@ -1,9 +1,17 @@
-import style from './Square.module.css';
+import  './Squares.css';
+
 
 export const Square = (props) => {
+    // console.log(props.WinLine);
+    // className={ active ? "modal__wrapper active" : "modal__wrapper" }
     return (
-        <button className={style.button} onClick={props.onClick}>
-            {props.value}
-        </button>
+        <div className={props.WinLine}>
+            <button 
+                className={ props.winnerSquare ? "button__field winner" : "button__field" } 
+                onClick={props.onClick}
+            >
+                {props.value}
+            </button>
+        </div>
     );
 };
