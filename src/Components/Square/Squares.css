@@ -17,3 +17,7 @@
 .winner{
     background-color:#15fe00dd;
 }
+.winner:hover{
+    background-color:#15fe00dd;
+    transition: 0.3s all ease;
+}

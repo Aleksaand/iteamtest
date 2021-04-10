@@ -62,7 +62,7 @@ export const PlayField = (props) => {
                     { winner ? 'Win' + winner : `Next move` + (xIsNext ? 'X' : '0')}
                 </span>
                 <span className={style.draw}>
-                    { (!board.includes(null)) ? `  DRAW  `: "" }
+                    { (!winner && !board.includes(null)) ? `  DRAW  `: "" }
                 </span>
 
             </div>
