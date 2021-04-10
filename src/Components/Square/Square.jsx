@@ -6,12 +6,12 @@ export const Square = (props) => {
     // className={ active ? "modal__wrapper active" : "modal__wrapper" }
     return (
         <div className={props.WinLine}>
-            <button 
+            <div
                 className={ props.winnerSquare ? "button__field winner" : "button__field" } 
                 onClick={props.onClick}
             >
                 {props.value}
-            </button>
+            </div>
         </div>
     );
 };
