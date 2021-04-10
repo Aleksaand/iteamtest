@@ -13,7 +13,6 @@ export const PlayField = (props) => {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
     const winner = calculateWinner(board);
-    // const space = &#32;
     const winnerBoard = getSquaresWin(board);
     const WinLine = getWinLine(winnerBoard);
     const player1 = props.playerFirst ? props.playerFirst : 'PLAYER1';

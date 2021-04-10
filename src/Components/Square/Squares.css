@@ -5,6 +5,8 @@
     cursor: pointer;
     font-size: 100px;
     user-select: none;
+    border: none; 
+    outline: none;
     color: #c4c4c4;
     /* margin-bottom: 10px; */
 }
