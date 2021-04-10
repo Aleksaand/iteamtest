@@ -13,6 +13,7 @@ export const PlayField = (props) => {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
     const winner = calculateWinner(board);
+    // const space = &#32;
     const winnerBoard = getSquaresWin(board);
     const WinLine = getWinLine(winnerBoard);
     const player1 = props.playerFirst ? props.playerFirst : 'PLAYER1';
@@ -58,12 +59,17 @@ export const PlayField = (props) => {
     return (
         <div>
             <div className={style.span}>
-                <span>{ winner ? 'Win' + winner : `Next move` + (xIsNext ? 'X' : '0')}</span>
+                <span>
+                    { winner ? 'Win' + winner : `Next move` + (xIsNext ? 'X' : '0')}
+                </span>
+                <span className={style.draw}>
+                    { (!board.includes(null)) ? `  DRAW  `: "" }
+                </span>
+
             </div>
             <div className={style.flex}>
                 
                 <div className={style.fieldstatistic}>
-                    
                     <Board 
                         squares={board} 
                         click={handleClick} 
@@ -71,6 +77,7 @@ export const PlayField = (props) => {
                         WinLine={WinLine}
                     />
                 </div>
+
                 <div>
                     <Statistic 
                         namePlayer1={player1}

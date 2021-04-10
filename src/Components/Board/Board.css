@@ -5,88 +5,94 @@
     grid-template-rows: 1fr 1fr 1fr;
     background-color: #a855c1;
     margin-bottom: 30px;
-    /* #c4c4c4 */
 }
 .row1::after {
-        content: '';
-        display: block;
-        height: 3px;
-        background: red;
-        position: absolute;
-        width: 500px;
-        bottom: 360px;
-        left: 100px;
+    content: '';
+    display: block;
+    height: 3px;
+    background: red;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    position: relative;
+    width: 460px;
+    bottom: 420px;
+    left: 0px;
 }
 .row2::after {
     content: '';
     display: block;
     height: 3px;
     background: red;
-    position: absolute;
-    width: 500px;
-    bottom: 200px;
-    left: 100px;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    position: relative;
+    width: 460px;
+    bottom: 260px;
+    left: 0px;
 }
 .row3::after {
     content: '';
     display: block;
     height: 3px;
     background: red;
-    position: absolute;
-    width: 500px;
-    bottom: 40px;
-    left: 100px;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    position: relative;
+    width: 460px;
+    bottom: 100px;
+    left: 0px;
 }
 .column1::after {
     content: '';
     display: block;
-    height: 500px;
-    background: red;
-    position: absolute;
+    height: 450px;
     width: 3px;
-    bottom: -45px;
-    left: 195px;
+    background: red;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    position: relative;
+    bottom: 490px;
+    left: 75px;
 }
 .column2::after {
     content: '';
     display: block;
-    height: 500px;
-    background: red;
-    position: absolute;
+    height: 450px;
     width: 3px;
-    bottom: -45px;
-    left: 350px;
+    background: red;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    position: relative;
+    bottom: 490px;
+    left: 230px;
 }
 .column3::after {
     content: '';
     display: block;
-    height: 500px;
-    background: red;
-    position: absolute;
+    height: 450px;
     width: 3px;
-    bottom: -45px;
-    left: 505px;
+    background: red;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    position: relative;
+    bottom: 490px;
+    left: 385px;
 }
-.diagonal09::before {
+.diagonal09::after {
+    content: '';
+    display: block;
+    height: 650px;
+    background: red;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    position: relative;
+    width: 3px;
+    bottom: 590px;
+    left: 230px;
     transform: rotate(135deg);
-    content: '';
-    display: block;
-    height: 700px;
-    background: red;
-    position: absolute;
-    width: 3px;
-    bottom: -140px;
-    left: 350px;
-    
 } 
-.diagonal37::before {
-    transform: rotate(45deg);
+.diagonal37::after {
     content: '';
     display: block;
-    height: 700px;
     background: red;
-    position: absolute;
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+    height: 650px;
     width: 3px;
-    bottom: -140px;
-    left: 350px;
-}
+    position: relative;
+    bottom: 590px;
+    left: 230px;
+    transform: rotate(45deg);
+} 

@@ -7,23 +7,25 @@ export const Board = ({ squares, click, winnerBoard, WinLine }) => {
      // console.log('winnerBoard',typeof(winnerBoard),winnerBoard);
     // console.log('WinLine',typeof(WinLine),WinLine);
     return (
-        <div className={`grid ${WinLine}`}>
-            {
-                squares.map((square, i) => (
-                   
-                    // if (winnerBoard.includes(i)) {
-                    //     console.log(i)
-                    // }
-                    <Square
-                        key={i} 
-                        value={square}
-                        winnerSquare={(winnerBoard.includes(i)) ? "winner" : ""}
-                        winnerBoard={winnerBoard}
-                        // WinLine={WinLine}
-                        onClick={() => click(i)}
-                    />
-                ))
-            }
+        <div className={` ${WinLine}`}>
+            <div className={`grid `}>
+                {
+                    squares.map((square, i) => (
+                    
+                        // if (winnerBoard.includes(i)) {
+                        //     console.log(i)
+                        // }
+                        <Square
+                            key={i} 
+                            value={square}
+                            winnerSquare={(winnerBoard.includes(i)) ? "winner" : ""}
+                            winnerBoard={winnerBoard}
+                            // WinLine={WinLine}
+                            onClick={() => click(i)}
+                        />
+                    ))
+                }
+            </div>
         </div>
     );
 };
