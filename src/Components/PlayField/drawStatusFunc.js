@@ -62,7 +62,7 @@ export const getDrawStatusLastOne = (squares) => {
             }   
     }
     if (count === 8 ) {
-        return true;
+        return false;
     }
     // if (count === 10) {
     //     return true;
