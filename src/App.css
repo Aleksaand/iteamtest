@@ -15,6 +15,11 @@
   align-items: center;
   justify-content: center;
   color: white;
+  
+}
+::-webkit-scrollbar { 
+  width: 0px;  
+  background: transparent;  
 }
 
 .buttton {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './PlayField.module.css';
 import { calculateWinner, getSquaresWin, getWinLine } from './helperFunctions';
-import { getDrawStatusLastTwo, getDrawStatusLastOne } from './drawStatusFunc';
+import { getDrawStatusLastTwo, getDrawStatusLastOne, getDrawStatusLastOneCentr } from './drawStatusFunc';
 import { Board } from '../Board/Board';
 import { Statistic } from '../Statistic/Statistic';
 
@@ -18,15 +18,19 @@ export const PlayField = (props) => {
     const winnerBoard = getSquaresWin(board);
     const drawStatusOne = getDrawStatusLastOne(board);
     const drawStatusTwo = getDrawStatusLastTwo(board);
-    const drawStatus = drawStatusOne || drawStatusTwo;
+    const drawStatusOneCenter = getDrawStatusLastOneCentr(board);
+    const drawStatus = drawStatusOne || drawStatusTwo || drawStatusOneCenter || ''; 
     const WinLine = getWinLine(winnerBoard);
-    const nexStep = xIsNext;
+    
 
     const player1 = props.playerFirst ? props.playerFirst : 'PLAYER1';
     const player2 = props.playerSecond ? props.playerSecond : 'PLAYER2';
 
-    // console.log(drawStatus);
-    // console.log(board);
+     console.log('drawStatusOne', drawStatusOne);
+     console.log('drawStatusTwo', drawStatusTwo);
+     console.log('drawStatusOneCenter', drawStatusOneCenter);
+
+ 
 
     React.useEffect( () => {
         if (winner) {
@@ -45,11 +49,13 @@ export const PlayField = (props) => {
     
     React.useEffect( () => {
         
-        console.log('board',board);
-        console.log('nexStep',nexStep);
-        console.log('drawStatus',drawStatus);
-        console.log('drawStatusOne',drawStatusOne);
-        console.log('drawStatusTwo',drawStatusTwo);
+        // console.log('board',board);
+        // console.log('nexStep',nexStep);
+        // console.log('drawStatus',drawStatus);
+        // console.log('drawStatusOne',drawStatusOne);
+        // console.log('drawStatusTwo',drawStatusTwo);
+        // console.log('drawStatusOneCenter',drawStatusOneCenter);
+
     }, [board]);
     
     const handleClick = (index) => {
