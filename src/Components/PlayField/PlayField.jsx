@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import style from './PlayField.module.css';
 import { calculateWinner, getSquaresWin, getWinLine } from './helperFunctions';
+import { getDrawStatusLastTwo, getDrawStatusLastOne } from './drawStatusFunc';
 import { Board } from '../Board/Board';
 import { Statistic } from '../Statistic/Statistic';
 
@@ -12,13 +13,21 @@ export const PlayField = (props) => {
     });
     const [board, setBoard] = useState(Array(9).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
+    
     const winner = calculateWinner(board);
     const winnerBoard = getSquaresWin(board);
+    const drawStatusOne = getDrawStatusLastOne(board);
+    const drawStatusTwo = getDrawStatusLastTwo(board);
+    const drawStatus = drawStatusOne || drawStatusTwo;
     const WinLine = getWinLine(winnerBoard);
+    const nexStep = xIsNext;
+
     const player1 = props.playerFirst ? props.playerFirst : 'PLAYER1';
     const player2 = props.playerSecond ? props.playerSecond : 'PLAYER2';
 
-    
+    // console.log(drawStatus);
+    // console.log(board);
+
     React.useEffect( () => {
         if (winner) {
             switch (winner) {
@@ -34,14 +43,24 @@ export const PlayField = (props) => {
         }
     }, [winner] );
     
+    React.useEffect( () => {
+        
+        console.log('board',board);
+        console.log('nexStep',nexStep);
+        console.log('drawStatus',drawStatus);
+        console.log('drawStatusOne',drawStatusOne);
+        console.log('drawStatusTwo',drawStatusTwo);
+    }, [board]);
+    
     const handleClick = (index) => {
         const boardCopy = [...board];
-        if (winner || boardCopy[index]) {
+        if (winner || boardCopy[index] || drawStatus) {
             return null;
         }
         boardCopy[index] = xIsNext ?  'X' :  '0';
         setBoard(boardCopy);
         setXIsNext(!xIsNext);
+        
     };
     const startNewGame = () => {
         return (
@@ -62,7 +81,8 @@ export const PlayField = (props) => {
                     { winner ? 'Win' + winner : `Next move` + (xIsNext ? 'X' : '0')}
                 </span>
                 <span className={style.draw}>
-                    { (!winner && !board.includes(null)) ? `  DRAW  `: "" }
+                    { (!winner && drawStatus) ? `  DRAW  `: "" }
+                    {/* { (!winner && !board.includes(null)) ? `  DRAW  `: "" } */}
                 </span>
 
             </div>
